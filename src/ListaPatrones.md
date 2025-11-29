@@ -1,6 +1,6 @@
 1. [x] Factory Method
-2. [ ] Singleton
-3. [ ] Adapter
+2. [x] Singleton
+3. [x] Adapter
 4. [ ] Proxy
 5. [ ] Composite
 6. [ ] Decorator

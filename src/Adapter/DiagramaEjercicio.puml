@@ -1,0 +1,21 @@
+@startuml
+
+interface IEnchufable{
++ conectar(): String
+}
+
+class DispositivoAntiguo{
++ encenderA100v(): String
+}
+
+class AdaptadorElectrico{
+- dispositivoAntiguo: DispositivoAntiguo
++conectar(): String
+}
+
+class Main{}
+
+Main --> IEnchufable
+AdaptadorElectrico ..|> IEnchufable
+AdaptadorElectrico --* DispositivoAntiguo
+@enduml

@@ -24,5 +24,4 @@ public class ConfiguracionSistema {
     public void setVersion(String version) {
         this.version = version;
     }
-
 }
