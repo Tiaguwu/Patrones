@@ -1,0 +1,1 @@
+Implementar un Proxy de Protección para una clase de servicio sensible, asegurando que solo los clientes con un rol específico (`ADMIN`) puedan ejecutar métodos que modifiquen los datos.

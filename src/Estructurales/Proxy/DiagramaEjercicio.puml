@@ -1,0 +1,28 @@
+@startuml
+
+interface IServicioUsuario{
++ obtenerUsuario(ind id): String
++ elmininarUsuario(ind id): String
+}
+
+class ServicioUsuarioReal {
++ obtenerUsuario(int id): String
++ elmininarUsuario(ind id): String
+}
+
+class ProxyUsuario{
+- servicio: ServicioUsuarioReal
+- rolUsuario: String
++ obtenerUsuario(int id): String
++ elmininarUsuario(ind id): String
+}
+
+class Main
+
+IServicioUsuario <|.. ProxyUsuario
+IServicioUsuario <|.. ServicioUsuarioReal
+ProxyUsuario o--> ServicioUsuarioReal
+Main ..> IServicioUsuario
+
+
+@enduml
