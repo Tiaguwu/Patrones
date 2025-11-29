@@ -1,0 +1,1 @@
+Objetivo: Implementar el patrón Singleton en Java para una clase llamada ConfiguracionSistema.

@@ -1,0 +1,13 @@
+@startuml
+
+class Singleton{
+- instance: Singleton
+-Singleton()
++ getInstance(): Singleton
+}
+
+class Client
+
+Singleton --> Singleton
+Client --> Singleton
+@enduml
