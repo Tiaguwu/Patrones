@@ -1,0 +1,38 @@
+@startuml
+interface GUIFactory{
++ crearBoton(): IBoton
++ crearVentana(): IVentana
+}
+
+interface IBoton{
++ hacerClick(): String
+}
+
+interface IVentana{
++ mostrarContenido(): String
+}
+
+class BotonClaro{}
+
+class BotonOscuro{}
+
+class TemaClaroFactory{}
+
+class TemaOscuroFactory{}
+
+class VentanaClara{}
+
+class VentanaOscura{}
+
+GUIFactory <|.. TemaClaroFactory
+GUIFactory <|.. TemaOscuroFactory
+IBoton <|.. BotonClaro
+IBoton <|.. BotonOscuro
+IVentana <|.. VentanaClara
+IVentana <|.. VentanaOscura
+TemaClaroFactory ..> IBoton
+TemaClaroFactory ..> IVentana
+TemaOscuroFactory ..> IBoton
+TemaOscuroFactory ..> IVentana
+
+@enduml

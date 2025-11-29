@@ -1,0 +1,50 @@
+@startuml
+
+class Client{}
+
+interface AbstractFactory{
++ createProductA(): ProductA
++ createProductB(): ProductB
+}
+
+class ConcreteFactoryX{
++ createProductA(): ProductA
++ createProductB(): ProductB
+}
+
+class ConcreteFactoryY{
++ createProductA(): ProductA
++ createProductB(): ProductB
+}
+
+interface ProductA{}
+
+interface ProductB{}
+
+class ProductAX{}
+
+class ProductAY{}
+
+class ProductBX{}
+
+class ProductBY{}
+
+Client "<<use>>" ..> AbstractFactory
+Client "<<use>>" ..> ProductA
+Client "<<use>>" ..> ProductB
+
+AbstractFactory <|.. ConcreteFactoryX
+AbstractFactory <|.. ConcreteFactoryY
+
+ProductA <|.. ProductAX
+ProductA <|.. ProductAY
+
+ProductB <|.. ProductBX
+ProductB <|.. ProductBY
+
+ConcreteFactoryX "<<create>>" ..> ProductAX
+ConcreteFactoryX "<<create>>" ..> ProductBX
+
+ConcreteFactoryY "<<create>>" ..> ProductAY
+ConcreteFactoryY "<<create>>" ..> ProductBY
+@enduml

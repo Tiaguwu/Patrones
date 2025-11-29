@@ -1,0 +1,3 @@
+Una compañía de software está desarrollando una aplicación que debe soportar múltiples temas visuales (por ejemplo, **Oscuro** y **Claro**). Para garantizar que todos los elementos de una interfaz (botones, ventanas) sean consistentes con el tema seleccionado, se debe implementar el patrón **Abstract Factory**.
+
+Tu tarea es crear la estructura completa para la familia de productos **Elementos GUI (Gráficos)**.
