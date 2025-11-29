@@ -1,0 +1,41 @@
+@startuml
+
+abstract class Logistica {
+# {abstract} crearVehiculo(): IVehiculo
++ planificarEntrega(): void
+}
+
+class Motocicleta {
++ obtenerTipo(): String
+}
+
+class Coche {
++ obtenerTipo(): String
+}
+
+class Camion {
++ obtenerTipo(): String
+}
+
+class LogisticaCarretera{
+# crearVehiculo: IVehiculo
+}
+
+class LogisticaUrbana{
+# crearVehiculo: IVehiculo
+}
+
+interface IVehiculo{
++ obtenerTipo(): String
+}
+
+Logistica <|-- LogisticaCarretera
+Logistica <|-- LogisticaUrbana
+IVehiculo <|.. Motocicleta
+IVehiculo <|.. Camion
+IVehiculo <|.. Coche
+Coche <.. LogisticaUrbana
+Camion <.. LogisticaCarretera
+
+
+@enduml
