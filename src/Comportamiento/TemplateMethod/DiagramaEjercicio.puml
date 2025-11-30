@@ -1,0 +1,25 @@
+@startuml
+
+abstract class ProcesadorPedido{
++ {final} procesarPedido(precioBase: double)
+# calcularCostoDescuento(): double
+# calcularCostoEnvio(): dobule
+# aplicarDescuento(): double
+# verificarStock()
+# notificarCliente()
+}
+
+class PedidoEstandar{
+# calcularCostoDescuento(): double
+# calcularCostoEnvio(): dobule
+}
+
+class PedidoInternacional{
+# calcularCostoDescuento(): double
+# calcularCostoEnvio(): dobule
+# aplicarDescuento(): double
+}
+
+ProcesadorPedido <|-- PedidoEstandar
+ProcesadorPedido <|-- PedidoInternacional
+@enduml
