@@ -1,0 +1,31 @@
+@startuml
+
+interface IUnidadOrganizacional {
++ mostrarReporte(): String
++ obtenerNombre(): String
+}
+
+class Empleado {
+- nombre: String
+- cargo: String
++ mostrarReporte(): String
++ obtenerNombre(): String
+}
+
+class Departamento {
+- nombre: String
+- miembros: IUnidadOrganizacional []
++ mostrarReporte(): String
++ obtenerNombre(): String
++ agregarUnidad(u: IUnidadOrganizacional)
++ removerUnidad(u: IUnidadOrganizacional)
+}
+
+class Main
+
+IUnidadOrganizacional <|.. Empleado
+IUnidadOrganizacional <|.. Departamento
+IUnidadOrganizacional <--o Departamento
+Main --> IUnidadOrganizacional
+
+@enduml

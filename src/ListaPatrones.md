@@ -3,7 +3,7 @@
 3. [x] Adapter
 4. [x] Proxy
 5. [ ] Composite
-6. [ ] Decorator
+6. [x] Decorator
 7. [ ] State
 8. [ ] Template Method
 9. [ ] Strategy
