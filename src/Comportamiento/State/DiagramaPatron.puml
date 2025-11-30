@@ -1,0 +1,33 @@
+@startuml
+
+class Client
+
+class Context {
+- state
++ Context(initialState)
++ changeState(state)
++ doThis()
++ doThat()
+}
+
+interface State{
++ doThis()
++ doThat()
+}
+
+class ConcreteStates{
+- context
++ setContext(context)
++ doThis()
++ doThat()
+}
+
+
+
+Client ..> ConcreteStates
+Client --> Context
+ConcreteStates --> Context
+Context o--> State
+ConcreteStates ..|> State
+
+@enduml

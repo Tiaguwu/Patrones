@@ -1,0 +1,49 @@
+@startuml
+
+interface IReproductorEstado{
++ presionarPlay(reproductor ReproductorContexto): String
++ presionarPausa(reproductor ReproductorContexto): String
++ presionarStop(reproductor ReproductorContexto): String
+}
+
+class ReproductorContexto{
+- estadoActual = IReproductorEstado
++ {static} final ESTADO_REPRODUCIENDO: EstadoReproduciendo
++ {static} final ESTADO_PAUSADO: EstadoPausado
++ {static} final ESTADO_DETENIDO: EstadoDetenido
++ setEstadoActual(nuevoEstado: IReproductorEstado)
++ getEstadoActual(): IReproductorEstado
++ presionarPlay(reproductor ReproductorContexto): String
++ presionarPausa(reproductor ReproductorContexto): String
++ presionarStop(reproductor ReproductorContexto): String
+}
+
+
+class EstadoReproduciendo{
++ presionarPlay(reproductor ReproductorContexto): String
++ presionarPausa(reproductor ReproductorContexto): String
++ presionarStop(reproductor ReproductorContexto): String
+}
+
+class EstadoPausado{
++ presionarPlay(reproductor ReproductorContexto): String
++ presionarPausa(reproductor ReproductorContexto): String
++ presionarStop(reproductor ReproductorContexto): String
+}
+
+class EstadoDetenido{
++ presionarPlay(reproductor ReproductorContexto): String
++ presionarPausa(reproductor ReproductorContexto): String
++ presionarStop(reproductor ReproductorContexto): String
+}
+
+IReproductorEstado <|.. EstadoReproduciendo
+IReproductorEstado <|.. EstadoDetenido
+IReproductorEstado <|.. EstadoPausado
+ReproductorContexto <-- Main
+ReproductorContexto o--> IReproductorEstado
+ReproductorContexto <-- EstadoReproduciendo
+ReproductorContexto <-- EstadoPausado
+ReproductorContexto <-- EstadoDetenido
+
+@enduml
