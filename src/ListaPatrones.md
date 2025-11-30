@@ -1,7 +1,7 @@
 1. [x] Factory Method
 2. [x] Singleton
 3. [x] Adapter
-4. [ ] Proxy
+4. [x] Proxy
 5. [ ] Composite
 6. [ ] Decorator
 7. [ ] State

@@ -1,0 +1,30 @@
+@startuml
+
+class Client
+
+interface Component {
++ execute()
+}
+
+class ConcreteComponent {
++ execute()
+}
+
+abstract class BaseDecorator{
+- wrappe: Component
++ BaseDecorator(c:Component)
++ execute()
+}
+
+class ConcreteDecorators{
++ execute()
++ extra()
+}
+
+Client --> Component
+Component <|.. ConcreteComponent
+Component <|.. BaseDecorator
+Component <--o BaseDecorator
+ConcreteDecorators --|> BaseDecorator
+
+@enduml

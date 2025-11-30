@@ -1,0 +1,37 @@
+@startuml
+
+interface IBebida{
++ obtenerCosto(): double
++ obtenerDescripcion(): String
+}
+
+class CafeSimple{
++ obtenerCosto(): double
++ obtenerDescripcion(): String
+}
+
+abstract class AditivoDecorador{
+- bebida: IBebida
++ obtenerCosto(): double
++ obtenerDescripcion(): String
+}
+
+class LecheDecorador{
++ obtenerCosto(): double
++ obtenerDescripcion(): String
+}
+
+class AzucarDecorador{
++ obtenerCosto(): double
++ obtenerDescripcion(): String
+}
+
+class Main
+
+IBebida <|.. CafeSimple
+IBebida <|.. AditivoDecorador
+AditivoDecorador <|-- LecheDecorador
+AditivoDecorador <|-- AzucarDecorador
+Main --> IBebida
+Main --> AditivoDecorador
+@enduml
