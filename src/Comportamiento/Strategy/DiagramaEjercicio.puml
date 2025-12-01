@@ -1,0 +1,38 @@
+@startuml
+
+interface IEstrategiaPago{
++ procesarPago(monto: double): String
+}
+
+class CarritoDeCompra{
+- metodoDePago: IEstrategiaPago
+- montoTotal: double
++ setMetodoDePago(nuevaEstrategia: IEstrategiaPago)
++ realizarPago(): String
+}
+
+class PagoTarjetaCredito{
++ procesarPago(monto: double): String
+}
+
+class PagoPaypal{
++ procesarPago(monto: double): String
+}
+
+class PagoBitcoin{
++ procesarPago(monto: double): String
+}
+
+class Main
+
+IEstrategiaPago <|.. PagoBitcoin
+IEstrategiaPago <|.. PagoPaypal
+IEstrategiaPago <|.. PagoTarjetaCredito
+CarritoDeCompra o--> IEstrategiaPago
+
+Main --> CarritoDeCompra
+Main ..> PagoTarjetaCredito
+Main ..> PagoPaypal
+Main ..> PagoBitcoin
+
+@enduml

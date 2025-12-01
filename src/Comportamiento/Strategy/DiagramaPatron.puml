@@ -1,0 +1,24 @@
+@startuml
+
+class Context{
+- Strategy
++ setStrategy(strategy)
++ doSomething()
+}
+
+interface Strategy{
++ doSomething(data)
+}
+
+class Client
+
+class ConcreteStrategies{
++ execute(data)
+}
+
+Context o--> Strategy
+Client --> Context
+Client ..> ConcreteStrategies
+ConcreteStrategies ..|> Strategy
+
+@enduml
