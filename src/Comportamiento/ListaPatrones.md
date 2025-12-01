@@ -5,6 +5,6 @@
 5. [ ] Memento
 6. [ ] Observer
 7. [x] State
-8. [ ] Strategy
-9. [ ] Template Method
+8. [x] Strategy
+9. [x] Template Method
 10. [ ] Vistitor
