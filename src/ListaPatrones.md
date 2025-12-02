@@ -8,4 +8,4 @@
 8. [x] Template Method
 9. [x] Strategy
 10. [x] Abstract Factory
-11. [ ] Builder
+11. [x] Builder
