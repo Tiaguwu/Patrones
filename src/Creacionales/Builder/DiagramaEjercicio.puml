@@ -1,0 +1,55 @@
+@startuml
+
+class Computadora{
+- ram: String
+- gpu: String
+- cpu: String
+- almacenamiento: String
++ {static} create(): Computadora
++ mostrarEspecificaciones()
+}
+
+interface IComputadoraBuilder{
++ setCPU()
++ setGPU()
++ setAlmacenamiento()
++ setRAM()
++ build(): Computadora
+}
+
+class GamingPCBuilder{
+- ram: String
+- gpu: String
+- cpu: String
+- almacenamiento: String
++ setCPU()
++ setGPU()
++ setAlmacenamiento()
++ setRAM()
++ build(): Computadora
+}
+
+class PCBasicaBuilder{
+- ram: String
+- gpu: String
+- cpu: String
+- almacenamiento: String
++ setCPU()
++ setGPU()
++ setAlmacenamiento()
++ setRAM()
++ build(): Computadora
+}
+
+class Ensamblador{
+ensamblarPCGaming(IComputadoraBuilder)
+ensamblarPCBasica(IComputadoraBuilder)
+}
+
+IComputadoraBuilder <|.. PCBasicaBuilder
+IComputadoraBuilder <|.. GamingPCBuilder
+Ensamblador --> IComputadoraBuilder
+PCBasicaBuilder ..> Computadora
+GamingPCBuilder ..> Computadora
+
+@enduml

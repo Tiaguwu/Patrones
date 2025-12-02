@@ -1,0 +1,54 @@
+@startuml
+title Builder Pattern (Fluent Interface)
+
+class Computadora{
+- cpu: String
+- ram: String
+- gpu: String
+- almacenamiento: String
++ {static} create(...): Computadora
++ mostrarEspecificaciones()
+}
+
+interface IComputadoraBuilder{
+    + setCPU(cpu: String): IComputadoraBuilder
+    + setRAM(ram: String): IComputadoraBuilder
+    + setGPU(gpu: String): IComputadoraBuilder
+    + setAlmacenamiento(almacenamiento: String): IComputadoraBuilder
+    + build(): Computadora
+}
+
+class GamingPCBuilder{
+- cpu: String
+- ram: String
+- almacenamiento: String
+- gpu: String
+    + setCPU(cpu: String): IComputadoraBuilder
+    + setRAM(ram: String): IComputadoraBuilder
+    + setGPU(gpu: String): IComputadoraBuilder
+    + setAlmacenamiento(almacenamiento: String): IComputadoraBuilder
+    + build(): Computadora
+}
+
+class PCBasicaBuilder{
+- cpu: String
+- ram: String
+- almacenamiento: String
+- gpu: String
+    + setCPU(cpu: String): IComputadoraBuilder
+    + setRAM(ram: String): IComputadoraBuilder
+    + setGPU(gpu: String): IComputadoraBuilder
+    + setAlmacenamiento(almacenamiento: String): IComputadoraBuilder
+    + build(): Computadora
+}
+
+class Ensamblador{
+    + ensamblarPCGaming(builder: IComputadoraBuilder)
+}
+IComputadoraBuilder <|.. PCBasicaBuilder
+IComputadoraBuilder <|.. GamingPCBuilder
+GamingPCBuilder ..> Computadora : creates
+Ensamblador -> IComputadoraBuilder
+PCBasicaBuilder ..> Computadora : creates
+
+@enduml
