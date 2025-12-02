@@ -1,0 +1,24 @@
+@startuml
+
+class Client
+
+class ConcretePrototype{
+- field1
++ ConcretePrototype(prototype)
++ clone(): Prototype
+}
+
+interface Prototype{
++ clone(): Prototype
+}
+
+class SubclassPrototype{
+- field2
++ SubclassPrototype(prototype)
++ clone(): Prototype
+}
+
+Client --> Prototype
+Prototype <|.. ConcretePrototype
+ConcretePrototype <|-- SubclassPrototype
+@enduml

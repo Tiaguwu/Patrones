@@ -1,0 +1,30 @@
+@startuml
+
+interface IDocumento{
++ clone(); IDocumento
++ mostrarInfo(): String
+}
+
+class Metadatos{
+- private fechaCreacion: String
++ Metadatos(metadatos)
++ getFechaCreacion(): String
++ setFechaCreacion(fechaCreacion: String)
++ clone(): Metadatos
+}
+
+class Reporte{
+- titulo: String
+- metaDatos: Metadatos
++ getMetaDatos(): Metadatos
++ setTitulo(titulo: String)
++ mostrarInfo(): String
++ clone(): IDocumento
+}
+
+class Main
+
+Main --> IDocumento
+IDocumento <|.. Reporte
+Reporte *-- Metadatos
+@enduml
