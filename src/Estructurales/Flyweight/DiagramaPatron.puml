@@ -1,0 +1,26 @@
+@startuml
+
+class Client
+
+class Context {
+- uniqueState
+- flyweight
++ Context(repeatingState, uniqueState)
++ operation()
+}
+
+class FlyweightFactory{
+- cache: Flyweight[]
++ getFlyweight(repeatingState)
+}
+
+class Flyweight{
+- repeatingState
++ operation(uniqueState)
+}
+
+Client *--> Context
+FlyweightFactory <-- Context
+Flyweight <-- Context
+FlyweightFactory o--> Flyweight
+@enduml

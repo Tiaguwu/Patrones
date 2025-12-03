@@ -1,0 +1,35 @@
+@startuml
+interface IElementoTerreno{
++ dibujar(x: int, y: int): String
++ getHashCodeIntriseco(): int
+}
+
+class Arbol{
+- {final} malla3D: String
+- {final} textura: String
++ dibujar(x: int, y: int): String
++ getHashCodeIntriseco(): int
+}
+
+class ElementoInstanciado{
+- {final} x: int
+- {final} y : int
+- {final} elemento: IElementoTerreno
++ getElemento(): IElementoTerreno
++ renderizar()
+}
+
+class FabricaTerreno{
+- final cache: Map[]
++ obtenerElemento(): IElementoTerreno
+}
+
+class Main
+IElementoTerreno <|.. Arbol
+FabricaTerreno .> Arbol : creates
+FabricaTerreno --> IElementoTerreno
+ElementoInstanciado --> IElementoTerreno : usa
+Main --> FabricaTerreno
+Main --> ElementoInstanciado
+
+@enduml

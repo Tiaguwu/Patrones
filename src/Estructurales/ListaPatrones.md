@@ -2,6 +2,6 @@
 2. [x] Bridge
 3. [x] Composite
 4. [x] Decorator
-5. [ ] Facade
-6. [ ] Flyweight
+5. [x] Facade
+6. [x] Flyweight
 7. [x] Proxy
