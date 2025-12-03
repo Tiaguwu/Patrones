@@ -1,6 +1,5 @@
 package Estructurales.Flyweight;
 
-import Creacionales.Prototype.IDocumento;
 
 public class Arbol implements IElementoTerreno {
     //Concrete Flyweight
