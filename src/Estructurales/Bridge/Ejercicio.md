@@ -1,0 +1,3 @@
+Implementaremos el patrón **Bridge** para una aplicación que necesita enviar notificaciones a diferentes **Plataformas** (iOS, Android, Web) y usar diferentes **Tipos de Mensaje** (Notificación de Error, Notificación de Alerta).
+
+Permitir que la clase de alto nivel (el Tipo de Mensaje, la Abstracción) pueda usar cualquier tecnología de envío (la Plataforma, la Implementación) sin un acoplamiento directo.

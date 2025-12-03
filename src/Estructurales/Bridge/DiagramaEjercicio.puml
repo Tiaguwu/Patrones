@@ -1,0 +1,47 @@
+@startuml
+skinparam package {
+    BorderColor red
+    BorderThickness 2
+    FontStyle bold
+    StereotypeFontColor red
+    BorderColor #FF0000
+    Style dashed
+}
+
+package "Bridge"  {
+    interface IPlataforma{
+    enviarMensaje(mensaje: String): String
+    }
+
+    class Mensaje{
+    # plataforma: IPlataforma
+    + {abstract} enviar (cuerpoMensaje: String): String
+    }
+}
+
+class PlataformaAndroid{
+enviarMensaje(mensaje: String): String
+}
+
+class PlataformaiOS{
+enviarMensaje(mensaje: String): String
+}
+
+class NotificacionAlerta{
++ enviar (cuerpoMensaje: String): String
+}
+
+class NotificacionError{
++ enviar (cuerpoMensaje: String): String
+}
+
+class Main
+
+Mensaje <|-- NotificacionAlerta
+Mensaje <|-- NotificacionError
+IPlataforma <|.. PlataformaAndroid
+IPlataforma <|.. PlataformaiOS
+IPlataforma <--o "1" Mensaje
+Main --> Mensaje
+
+@enduml
