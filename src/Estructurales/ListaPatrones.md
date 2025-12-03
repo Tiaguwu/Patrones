@@ -1,5 +1,5 @@
 1. [x] Adapter
-2. [ ] Bridge
+2. [x] Bridge
 3. [x] Composite
 4. [x] Decorator
 5. [ ] Facade

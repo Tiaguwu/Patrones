@@ -1,0 +1,36 @@
+@startuml
+
+class Client
+
+class Facade{
+- linnksToSubsystemObjects
+- optionalAdditionalFacade
++ subsystemOperation()
+}
+
+class AdditionalFacade{
++ anotherOperation()
+}
+
+skinparam package {
+    BorderColor red
+    BorderThickness 2
+    FontStyle bold
+    StereotypeFontColor red
+    BorderColor #FF0000
+    Style dashed
+}
+
+package "A"  {
+   class SubsystemClass1
+   class SubsystemClass2
+   class SubsystemClass3
+    }
+
+Client --> Facade
+Facade --> AdditionalFacade
+Facade ..> SubsystemClass1
+Facade ..> SubsystemClass2
+AdditionalFacade ..> SubsystemClass2
+AdditionalFacade ..> SubsystemClass3
+@enduml

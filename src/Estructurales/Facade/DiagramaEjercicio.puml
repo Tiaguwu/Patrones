@@ -1,0 +1,40 @@
+@startuml
+
+class Main
+
+
+
+package "A"  {
+    class Amplificador{
+    + encender()
+    + ajustarVolumen(volumen: int)
+    + apagar()
+    }
+
+    class Proyector{
+    + encender()
+    + configurarModoCine()
+    + apagar()
+    }
+
+    class ReproductorDVD{
+    + encender()
+    + reproducirPelicula(pelicula: String)
+    + apagar()
+    }
+}
+
+class SistemaCineEnCasa{
+- {final} proyector: Proyector
+- {final} amplificador: Amplificador
+- {final} reproductorDVD: ReproductorDVD
++ verPelicula(pelicula: String, volumen: int)
++ apagarTodo()
+}
+
+Main --> SistemaCineEnCasa
+SistemaCineEnCasa ..> Proyector
+SistemaCineEnCasa ..> Amplificador
+SistemaCineEnCasa ..> ReproductorDVD
+
+@enduml
