@@ -1,0 +1,25 @@
+@startuml
+
+interface Handler{
++ setNext(h: Handler)
++ handle(request)
+}
+
+class BaseHandler{
+- next: Handler
++ setNext(h: Handler)
++ handler(resquest)
+}
+
+class ConcreteHandlers{
++ handler(resquest)
+}
+
+class Client
+
+Client --> Handler
+BaseHandler ..|> Handler
+ConcreteHandlers --|> BaseHandler
+BaseHandler o--> Handler
+
+@enduml

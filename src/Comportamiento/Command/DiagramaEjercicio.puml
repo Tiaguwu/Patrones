@@ -1,0 +1,45 @@
+@startuml
+class Main
+
+interface IComando{
++ ejecutar(): String
+}
+
+class ComandoEncenderLuz{
+- luz: Luz
++ ejecutar(): String
+}
+
+class ComandoSubirTemperatura{
+- termostato: Termostato
++ ejecutar(): String
+}
+
+class Termostato{
+- {final} ubicacion: String
+- temperatura: int
++ subirTermostato(): String
++ bajarTermostato(): String
+}
+
+class Luz{
+- {final} ubicacion: String
++ encender(): String
++ apagar(): String
+}
+
+class ControlRemoto{
+- comandoSlot: IComando
++ presionarBoton(): String
+}
+
+IComando <|.. ComandoEncenderLuz
+IComando <|.. ComandoSubirTemperatura
+ComandoEncenderLuz --> Luz
+ComandoSubirTemperatura --> Termostato
+ControlRemoto --> IComando
+Main --> ControlRemoto
+Main ..> Luz : crea
+Main ..> Termostato : crea
+
+@enduml

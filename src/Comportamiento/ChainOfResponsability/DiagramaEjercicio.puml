@@ -1,0 +1,32 @@
+@startuml
+
+abstract class Aprobador{
+- siguienteAprobador: Aprobador
+# {abstract} getLimiteAprobacion(): int
+# {abstract} getCargo(): String
++ setSiguienteAprobador()
++ solicitarAprobacion(): String
+}
+
+class Gerente{
+# getLimiteAprobacion(): int
+# getCargo(): String
+}
+
+class Director{
+# getLimiteAprobacion(): int
+# getCargo(): String
+}
+
+class Vicepresidente{
+# getLimiteAprobacion(): int
+# getCargo(): String
+}
+
+class Main
+
+Main --> Aprobador
+Aprobador <|-- Director
+Aprobador <|-- Gerente
+Aprobador <|-- Vicepresidente
+@enduml
