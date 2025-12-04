@@ -1,0 +1,32 @@
+@startuml
+class Client
+
+interface Iterator{
++ getNext()
++ hasMore(): boolean
+}
+
+interface IterableCollection{
++ createIterator(): Iterator
+}
+
+class ConcreteIterator{
+- collection: ConcreteCollection
+- iterationState
++   ConcreteIterator(c: ConcreteCollection)
++ getNext()
++ hasMore(): boolean
+}
+
+class ConcreteCollection{
++ createIterator()
+}
+
+ConcreteCollection <--> ConcreteIterator
+ConcreteCollection ..|> IterableCollection
+ConcreteIterator ..|> Iterator
+IterableCollection ..> Iterator
+Client --> Iterator
+Client --> IterableCollection
+
+@enduml

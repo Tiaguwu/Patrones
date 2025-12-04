@@ -1,0 +1,76 @@
+@startuml
+' Interfaces
+interface ITareaAgregado {
+    + crearIterador(): ITareaIterator
+}
+
+interface ITareaIterator {
+    + haySiguiente(): boolean
+    + siguiente(): Tarea
+}
+
+' Producto (Elemento)
+class Tarea {
+    - nombre: String
+    - descripcion: String
+    + getNombre(): String
+    + getDescripcion(): String
+}
+
+' Agregado Concreto A (Array)
+class ColleccionTareasArray {
+    - listaTareas: Tarea[]
+    - indice: int
+    + ColleccionTareasArray()
+    + agregarTarea(String nombre, String desc)
+    + crearIterador(): ITareaIterador
+}
+
+' Iterador Concreto A (Array)
+class IteradorTareasArray {
+    - lista: Tarea[]
+    - posicion: int
+    + IteradorTareasArray(Tarea[] lista)
+    + haySiguiente(): boolean
+    + siguiente(): Tarea
+}
+
+' Agregado Concreto B (Map)
+class ColeccionTareasMap {
+    - mapaTareas: Map<String, Tarea>
+    + ColeccionTareasMap()
+    + agregarTarea(String clave, String nombre)
+    + crearIterador(): ITareaIterador
+}
+
+' Iterador Concreto B (Map)
+class IteradorTareasMap {
+    - iteradorMap: Iterator<Tarea>
+    + IteradorTareasMap(Map<String, Tarea> mapa)
+    + haySiguiente(): boolean
+    + siguiente(): Tarea
+}
+
+' Cliente
+class Main {
+    + imprimirTareas(ITareaIterador iterador)
+    + main(String[] args)
+}
+
+ColleccionTareasArray ..|> ITareaAgregado
+ColeccionTareasMap ..|> ITareaAgregado
+IteradorTareasArray ..|> ITareaIterator
+IteradorTareasMap ..|> ITareaIterator
+
+ColleccionTareasArray ..> IteradorTareasArray : <<crea>>
+ColeccionTareasMap ..> IteradorTareasMap : <<crea>>
+
+IteradorTareasArray o-- Tarea
+IteradorTareasMap o-- Tarea
+ColleccionTareasArray o-- Tarea
+ColeccionTareasMap o-- Tarea
+
+' Uso por el Cliente
+Main ..> ITareaAgregado
+Main ..> ITareaIterator
+@enduml

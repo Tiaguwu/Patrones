@@ -1,0 +1,3 @@
+Implementaremos el patrón **Iterator** para permitir que un cliente recorra dos tipos diferentes de colecciones de tareas (una basada en un Array fijo y otra basada en un `HashMap` personalizado) utilizando la misma interfaz de iteración.
+
+Crear un iterador que pueda recorrer una colección de `Tareas` y demostrar que el cliente puede usar la misma sintaxis de bucle para colecciones que tienen diferentes estructuras internas.
