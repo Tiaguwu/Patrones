@@ -1,5 +1,5 @@
-1. [ ] Chain of Responsability
-2. [ ] Command
+1. [x] Chain of Responsability
+2. [x] Command
 3. [ ] Iterator
 4. [ ] Mediator
 5. [ ] Memento
