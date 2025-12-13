@@ -7,4 +7,4 @@
 7. [x] State
 8. [x] Strategy
 9. [x] Template Method
-10. [ ] Visitor
+10. [x] Visitor
