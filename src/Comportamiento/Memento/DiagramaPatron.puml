@@ -1,0 +1,35 @@
+@startuml
+
+interface Memento {
++ restore()
+}
+
+class ConcreteMemento{
+- originator
+- state
++ ConcreteMemento(originator, state)
++ restore()
+}
+
+class Caretaker{
+- history: Memento[]
++ undo()
+}
+
+interface Originator{
+save(): Memento
+}
+
+class ConcreteOriginator{
+- state
++ save(): Memento
++ setState(state)
+}
+
+Originator ..> Memento
+Originator <|.. ConcreteOriginator
+Memento <|.. ConcreteMemento
+ConcreteOriginator <--> ConcreteMemento
+Memento <--o Caretaker
+
+@enduml

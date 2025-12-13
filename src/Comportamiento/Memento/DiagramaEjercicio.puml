@@ -1,0 +1,39 @@
+@startuml
+
+interface IMemento{
++ getFechaGuardado(): String
++ getNombreEstado(): String
+}
+
+class MementoEditor{
+- {final} contenido: String
+- {final} fecha: LocalDateTime
+- {static} {final} FORMATTER: DateTimeFormatter
++ MementoEditor(contenido: String)
++ getContenido: String
++ getFechaGuardado(): String
++ getNombreEstado(): String
+}
+
+class EditorTexto{
+- contenido: String
++ agregarTexto(texto: String)
++ guardar(): IMemento
++ deshacer(memento: IMememnto)
++ mostrarEstado()
+}
+
+class Historial{
+- historial: IMemento[]
++ guardar()
++ deshacer(): IMemento
+}
+
+IMemento <|.. MementoEditor
+EditorTexto ..> MementoEditor
+Historial o--> IMemento
+Main ..> EditorTexto
+Main ..> Historial
+EditorTexto ..> IMemento
+
+@enduml
