@@ -1,0 +1,53 @@
+@startuml
+
+class AuditoriaVisitor{
++ visitar(o: Operador): String
++ visitar(m: Manager): String
+}
+
+interface IVisitor{
++ visitar(o: Operador): String
++ visitar(m: Manager): String
+}
+
+interface IEmpleado{
++ aceptar(visitor: IVisitor): String
+}
+
+class Operario{
+- nombre: String
+- salarioBase: double
+- horasExtra: int
++ getNombre():String
++ getSalarioBase(): double
++ getHorasExtra: int
++ aceptar(visitor: IVisitor): String
+}
+
+class Manager{
+- nombre: String
+- salarioBase: double
+- bono: double
++ getNombre():String
++ getSalarioBase(): double
++ getBono: double
++ aceptar(visitor: IVisitor): String
+}
+
+class NominaVisitor{
++ visitar(o: Operador): String
++ visitar(m: Manager): String
+}
+
+class Main
+
+IEmpleado ..> IVisitor
+IVisitor ..> Manager
+IVisitor ..> Operario
+Main ..> IVisitor
+IVisitor <|.. NominaVisitor
+IVisitor <|.. AuditoriaVisitor
+IEmpleado <|.. Manager
+IEmpleado <|.. Operario
+Main ..> "1..*" IEmpleado
+@enduml

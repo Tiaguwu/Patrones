@@ -1,0 +1,37 @@
+@startuml
+
+interface Visitor{
++ visit(e: ElementA)
++ visit(e: ElementB)
+}
+
+interface Element{
++ accept(v: Visitor)
+}
+
+class ConcreteVisitors{
++ visit(e: ElementA)
++ visit(e: ElementB)
+}
+
+class ConcreteElementA{
++ featureA()
++ accept(v: Visitor)
+}
+
+class ConcreteElementB{
++ featureB()
++ accept(v: Visitor)
+}
+
+class Client
+
+Client ..> ConcreteVisitors
+Client ..> Element
+Element ..> Visitor
+Visitor ..> ConcreteElementA
+Visitor ..> ConcreteElementB
+ConcreteVisitors ..|> Visitor
+ConcreteElementA ..|> Element
+ConcreteElementB ..|> Element
+@enduml
