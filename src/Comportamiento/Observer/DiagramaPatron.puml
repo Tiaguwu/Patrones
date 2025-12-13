@@ -1,0 +1,27 @@
+@startuml
+
+interface Subscriber{
++ update(context)
+}
+
+class ConcreteSusbscriber{
++ update(context)
+}
+
+class Publisher{
+- subscribers: Subscriber[]
+- mainState
++ susbribe(s: Subscriber)
++ unsusbribe(s: Subscriber)
++ notifySubscribers()
++ mainBusinessLogic()
+}
+
+class Client
+
+Client --> Publisher
+Client ..> ConcreteSusbscriber
+Subscriber <|.. ConcreteSusbscriber
+Subscriber <--o Publisher
+
+@enduml

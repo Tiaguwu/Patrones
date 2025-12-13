@@ -1,0 +1,48 @@
+@startuml
+
+interface IObservador{
++ actualizar(noticia: String)
+}
+
+interface ISujetoNoticias{
++ adjuntar(observador: IObservador)
++ desadjuntar(observador: IObservador)
++ notificar()
+}
+
+class AppMovil{
+- {final} usuario: String
++ actualizar(noticia: String)
+}
+
+class CorreoElectronico{
+- {final} direccion: String
++ actualizar(noticia: String)
+}
+
+class Logger {
++ actualizar(noticia: String)
+}
+
+class ServidorNoticias{
+- {final} observadores: IObservador[]
+- ultimaNoticia: String
++ adjuntar(observador: IObservador)
++ desadjuntar(observador: IObservador)
++ publicarNoticia(noticia: String)
++ notificar()
+}
+
+class Main
+
+IObservador <|.. AppMovil
+IObservador <|.. CorreoElectronico
+IObservador <|.. Logger
+ISujetoNoticias <|.. ServidorNoticias
+ServidorNoticias *..> "1..*" IObservador
+Main ..> ServidorNoticias
+Main ..> AppMovil
+Main ..> CorreoElectronico
+Main ..> Logger
+
+@enduml

@@ -1,0 +1,3 @@
+Implementaremos el patrón Observer para una plataforma de noticias donde un `ServidorNoticias` (Sujeto) notifica a varios suscriptores (Observadores) cuando hay una nueva publicación.
+
+Permitir que diferentes tipos de suscriptores (`AppMovil`, `CorreoElectronico`) se suscriban a un `ServidorNoticias`. Cuando el servidor publica algo, todos los suscriptores reciben el mismo mensaje, pero reaccionan de forma diferente.
