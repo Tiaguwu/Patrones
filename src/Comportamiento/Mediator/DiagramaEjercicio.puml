@@ -1,0 +1,29 @@
+@startuml
+
+interface ITorreControl{
++ registrar(avion: Avion)
++ notificar(emisor: Avion, mensaje: String)
+}
+
+class ControlTorre{
+- {final} aviones: List<Avion>
++ registrar(avion: Avion)
++ notificar(emisor: Avion, mensaje: String)
+}
+
+class Avion{
+- {final} torre: ITorreControl
+- nombre: String
+- altitud: int
++ getAltitud(): int
++ getNombre(): String
++ cambiarAltitud(nuevaAltitud: int)
++ aterrizar()
++ recibirMensaje(mensaje: String)
+}
+
+ControlTorre ..|> ITorreControl
+Avion --> ITorreControl
+Avion <--* ControlTorre
+
+@enduml

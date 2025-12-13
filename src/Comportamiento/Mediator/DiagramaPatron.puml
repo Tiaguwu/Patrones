@@ -1,0 +1,50 @@
+@startuml
+
+interface Mediator{
++ notify(sender)
+}
+
+class ConcreteMediator{
+- componentA
+- componentB
+- componentC
+- componentD
++ notify(sender)
++ reactOnA()
++ reactOnB()
++ reactOnC()
++ reactOnD()
+}
+
+class ComponentA{
+- m: Mediator
++ operationA()
+}
+
+class ComponentB{
+- m: Mediator
++ operationB()
+}
+
+class ComponentC{
+- m: Mediator
++ operationC()
+}
+
+class ComponentD{
+- m: Mediator
++ operationD()
+}
+
+ConcreteMediator ..|> Mediator
+ComponentA --> Mediator
+ComponentB --> Mediator
+ComponentC --> Mediator
+ComponentD --> Mediator
+ComponentA <--* ConcreteMediator
+ComponentB <--* ConcreteMediator
+ComponentC <--* ConcreteMediator
+ComponentD <--* ConcreteMediator
+
+
+@enduml
