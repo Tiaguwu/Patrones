@@ -1,7 +1,7 @@
 1. [x] Chain of Responsability
 2. [x] Command
-3. [ ] Iterator
-4. [ ] Mediator
+3. [x] Iterator
+4. [x] Mediator
 5. [ ] Memento
 6. [ ] Observer
 7. [x] State
